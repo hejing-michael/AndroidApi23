@@ -26,26 +26,28 @@ public class MyViewGroup extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        Log.i(TAG, "onInterceptTouchEvent#event:"+event.getAction());
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "onInterceptTouchEvent#event:" + event.getAction());
+        }
         return super.onInterceptTouchEvent(event);
 //        return true;
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction()==MotionEvent.ACTION_DOWN){
-            Log.i(TAG, "dispatchTouchEvent#event:"+event.getAction());
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "dispatchTouchEvent#event:" + event.getAction());
         }
         return super.dispatchTouchEvent(event);
-//        return true;
+//        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction()==MotionEvent.ACTION_DOWN) {
-            Log.i(TAG, "onTouchEvent#event:"+event.getAction());
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "onTouchEvent#event:" + event.getAction());
         }
         return super.onTouchEvent(event);
-//        return true;
+//        return false;
     }
 }
