@@ -29,18 +29,26 @@ public class MyView extends TextView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            Log.i(TAG, "dispatchTouchEvent#event:" + event.getAction());
+            Log.i(TAG, "s dispatchTouchEvent#event:" + event.getAction());
         }
-        return super.dispatchTouchEvent(event);
+        boolean result = super.dispatchTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "e dispatchTouchEvent#event:" + event.getAction());
+        }
+        return result;
 //        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            Log.i(TAG, "onTouchEvent#event:" + event.getAction());
+            Log.i(TAG, "s onTouchEvent#event:" + event.getAction());
         }
-        return super.onTouchEvent(event);
+        boolean result = super.onTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "e onTouchEvent#event:" + event.getAction());
+        }
+        return result;
 //        return false;
     }
 }

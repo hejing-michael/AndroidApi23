@@ -17,18 +17,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            Log.i(TAG, "dispatchTouchEvent#event:" + event.getAction());
+            Log.i(TAG, "s dispatchTouchEvent#event:" + event.getAction());
         }
-        return super.dispatchTouchEvent(event);
-        //        return true;
+        boolean result = super.dispatchTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "e dispatchTouchEvent#event:" + event.getAction());
+        }
+        return result;
+//                return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            Log.i(TAG, "onTouchEvent#event:" + event.getAction());
+            Log.i(TAG, "s onTouchEvent#event:" + event.getAction());
         }
-        return super.onTouchEvent(event);
+        boolean result = super.onTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i(TAG, "e onTouchEvent#event:" + event.getAction());
+        }
+        return result;
 //        return false;
     }
 }
